@@ -1,0 +1,26 @@
+#HomePage
+#elementname: locatortype: locatorvalue
+
+navigationMenu_button: xpath: //div[contains(@class,'nav-icon')]
+logo_img: xpath: //a[contains(@class,'home-page-link')]
+search_button: classname: room5-icons-search
+search_textbox: classname: search-input
+suggestedPostHeader_label: xpath: //h1[contains(@class,'suggested-post-title') and contains(text(),'Search Results')]
+noResultsDisplayed_label: xpath: //h1[contains(@class,'suggested-post-title') and contains(text(),'No Results')]
+adjustSearchTermMsg_label: xpath: //div[@class='search-results']/div[2]/p
+searchClose_button: xpath: //span[contains(@class,'search-icon-close')]
+editorPickHeader_label: xpath: //h1[contains(text(),"Editor's Pick")]
+mostPopularHeader_label: xpath: //h1[text()='Most Popular']
+recentArticlesHeader_label: xpath: //h1[text()='Recent Articles']
+inspirationsHeader_label: xpath: //h1[contains(text(),'Inspiration')]
+seeAllInspirations_button: id: all_themes_btn
+destinationsHeader_label: xpath: //h1[contains(text(),'Destinations')]
+seeAllDestinations_button: id: all_destinations_btn
+selectCountry_dropdown: id: select-country
+about_link: linktext: About
+contact_link: linktext: Contact
+downloadApp_link: linktext: Download App
+cookiePolicy_link: linktext: Cookie Policy
+legalInformation_link: linktext: Legal Information
+trivago_link: linktext: trivago
+copyright_label: xpath: //div[contains(text(),'Copyright © 2017 trivago | All rights reserved.')]

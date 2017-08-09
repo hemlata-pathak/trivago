@@ -1,0 +1,20 @@
+{
+	"countryData": {
+		"usaData": {
+			"countryName": "USA",
+			"countryCode": "com"
+		},
+		"ukData": {
+			"countryName": "United Kingdom",
+			"countryCode": "uk"
+		},
+		"singaporeData": {
+			"countryName": "Singapore",
+			"countryCode": "sg"
+		},
+		"australiaData": {
+			"countryName": "Australia",
+			"countryCode": "au"
+		}
+	}
+}
