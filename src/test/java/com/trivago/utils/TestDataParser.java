@@ -33,38 +33,8 @@ public class TestDataParser {
         return searchTerm;
 	}
 	
-	public JSONObject getAddressData(String addressType){
-		JSONObject addressData = (JSONObject) jsonObject.get("addressData");
-        JSONObject adressDataObj = (JSONObject) addressData.get(addressType);
-        return adressDataObj;
+	public JSONArray getLocaleData(){
+		JSONArray localeDataArray = (JSONArray) jsonObject.get("localeData");
+        return localeDataArray;
 	}
-	
-	public JSONObject getProductData(String productType){
-		JSONObject productData = (JSONObject) jsonObject.get("productData");
-        JSONObject productDataObj = (JSONObject) productData.get(productType);
-        return productDataObj;
-	}
-	
-	public JSONObject getCreditCardData(String creditCardType){
-		JSONObject paymentData = (JSONObject) jsonObject.get("paymentData");
-        JSONObject creditCardDataObj = (JSONObject) paymentData.get(creditCardType);
-        return creditCardDataObj;
-	}
-	
-	public String getUserDataValue(String userType, String userDataKey){
-		JSONObject userData = (JSONObject) jsonObject.get("userData");
-        JSONObject userDataObj = (JSONObject) userData.get(userType);
-        String userdataValue = (String)userDataObj.get(userDataKey);
-        return userdataValue;
-	}
-	
-	public String getAddressDataValue(String addressType, String addressDataKey){
-		JSONObject addressData = (JSONObject) jsonObject.get("addressData");
-        JSONObject adressDataObj = (JSONObject) addressData.get(addressType);
-        String addressdataValue = (String)adressDataObj.get(addressDataKey);
-        return addressdataValue;
-	}
-	
-	
-	
 }

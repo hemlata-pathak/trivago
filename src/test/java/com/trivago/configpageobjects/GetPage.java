@@ -126,6 +126,8 @@ public class GetPage extends BaseUi {
                 return By.cssSelector(locatorValue);
             case linktext:
                 return By.linkText(locatorValue);
+            case tagname:
+                return By.tagName(locatorValue);
             default:
                 return By.id(locatorValue);
         }

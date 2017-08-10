@@ -1,6 +1,6 @@
 #HomePage
 #elementname: locatortype: locatorvalue
-
+root_tag: tagname: html
 navigationMenu_button: xpath: //div[contains(@class,'nav-icon')]
 logo_img: xpath: //a[contains(@class,'home-page-link')]
 search_button: classname: room5-icons-search
@@ -10,13 +10,23 @@ noResultsDisplayed_label: xpath: //h1[contains(@class,'suggested-post-title') an
 adjustSearchTermMsg_label: xpath: //div[@class='search-results']/div[2]/p
 searchClose_button: xpath: //span[contains(@class,'search-icon-close')]
 editorPickHeader_label: xpath: //h1[contains(text(),"Editor's Pick")]
+editorPickSection_container: id: editors_pick
+mostPopularSection_container: id: most_popular
+latestArticleSection_container: id: latest_articles
+inspirationSection_container: id: inspiration
+destinationsSection_container: id: destinations
 mostPopularHeader_label: xpath: //h1[text()='Most Popular']
 recentArticlesHeader_label: xpath: //h1[text()='Recent Articles']
 inspirationsHeader_label: xpath: //h1[contains(text(),'Inspiration')]
 seeAllInspirations_button: id: all_themes_btn
 destinationsHeader_label: xpath: //h1[contains(text(),'Destinations')]
 seeAllDestinations_button: id: all_destinations_btn
+editorsPickpostImages_list: xpath: //div[@id='${sectionId}']/div/a/span/span[1]
+postTitles_list: xpath: //div[@id='${sectionId}']/div/div//div[@class='post-title']/a
+tagLinks_list: xpath: //div[@id='${sectionId}']/div/div/div//a[contains(@class,'tag-link')]
+postImages_list: xpath: //div[@id='${sectionId}']/div//a/div/div[1]
 selectCountry_dropdown: id: select-country
+footerLinks_list: xpath: //footer[@id='footer']//div/div[2]/div/ul/li/a
 about_link: linktext: About
 contact_link: linktext: Contact
 downloadApp_link: linktext: Download App
@@ -24,3 +34,4 @@ cookiePolicy_link: linktext: Cookie Policy
 legalInformation_link: linktext: Legal Information
 trivago_link: linktext: trivago
 copyright_label: xpath: //div[contains(text(),'Copyright © 2017 trivago | All rights reserved.')]
+navigationMenuLinks_list: xpath: //nav[contains(@class,'main-menu')]/ul/ul/li/a

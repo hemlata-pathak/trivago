@@ -1,0 +1,4 @@
+#AboutUsPage
+#elementname: locatortype: locatorvalue
+
+aboutUsHeader_label: xpath: //h1[text()='About Us']

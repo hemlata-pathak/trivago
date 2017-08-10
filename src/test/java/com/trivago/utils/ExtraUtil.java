@@ -1,5 +1,7 @@
 package com.trivago.utils;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.security.SecureRandom;
 import java.util.Random;
 
@@ -41,5 +43,34 @@ public class ExtraUtil {
 	    }
 	    return new String(result);
 	}
+	
+	public static boolean checkBrokenLink(String link){
+        HttpURLConnection urlConnection = null;
+        try{
+            URL url = new URL(link);
+            urlConnection = (HttpURLConnection) url.openConnection();
+            urlConnection.setRequestMethod("GET"); 
+            urlConnection.setConnectTimeout(5000); /* timeout after 5s if can't connect */ 
+            urlConnection.setReadTimeout(10000); /* timeout after 10s if the page is too slow */ 
+            urlConnection.connect();  
+            String redirectLink = urlConnection.getHeaderField("Location");
+            System.out.println("redirectLink = "+redirectLink);
+            if (redirectLink != null && !link.equals(redirectLink)) { 
+                return checkBrokenLink(redirectLink);
+            }
+            else{
+                int responseCode = urlConnection.getResponseCode();
+                System.out.println("response code = "+responseCode);
+                return(responseCode != 404);  
+            }            
+        }catch(Exception e){
+            e.printStackTrace();
+            return false;
+        } finally{
+            if (urlConnection != null) {
+                urlConnection.disconnect();  
+            }
+        }
+    }
 	
 }

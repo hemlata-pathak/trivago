@@ -1,0 +1,6 @@
+{
+	"localeData": [
+	{"country":"USA","localeDomain":"com","language":"en-US"},
+	{"country":"Australia","localeDomain":"com.au","language":"en-AU"},
+	{"country":"France","localeDomain":"fr","language":"fr-FR"}]
+}
