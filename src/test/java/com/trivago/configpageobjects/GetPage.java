@@ -9,6 +9,9 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
+
+import com.trivago.utils.ExtraUtil;
+
 import static com.trivago.configpageobjects.ObjectFileReader.getELementFromFile;
 
 /**
@@ -110,6 +113,15 @@ public class GetPage extends BaseUi {
         locator[2] = locator[2].replaceAll("\\$\\{.+\\}", replacement);
         return getLocators(locator[1].trim(), locator[2].trim());
     }
+    
+  //validate the reference link of an anchor tag
+	protected void verifyAnchorTagLinks(List<WebElement> linksList) {
+		for (WebElement link : linksList) {
+			String src = link.getAttribute("href");
+			Assert.assertTrue(ExtraUtil.checkBrokenLink(src), src + " link is broken");
+			logMessage("Verified that " + src + " is not broken");
+		}
+	}
 
     //TODO rename to distiguish between getlocator and getlocators
     private By getLocators(String locatorType, String locatorValue) {

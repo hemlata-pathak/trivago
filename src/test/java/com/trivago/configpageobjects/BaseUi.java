@@ -2,8 +2,10 @@ package com.trivago.configpageobjects;
 
 import static com.trivago.utils.DataReadWrite.getProperty;
 import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
 import java.util.List;
+import java.util.Set;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -53,6 +55,22 @@ public class BaseUi {
         logMessage("Assertion Passed: PageTitle for " + pageName
                 + " is exactly: '" + expectedPagetitle + "'");
     }
+    
+    /**
+     * this method will get page title of current window and match it partially with the param provided
+     *
+     * @param expectedPagetitle partial page title text
+     */
+    protected void verifyPageTitleContains(String expectedPagetitle) {
+        wait.waitForPageTitleToContain(expectedPagetitle);
+        String actualPageTitle = getPageTitle().trim();
+        assertTrue(actualPageTitle.contains(expectedPagetitle),
+                "Verifying Actuals Page Title: '" + actualPageTitle
+                + "' contains expected Page Title : '"
+                + expectedPagetitle + "'.");
+        logMessage("Assertion Passed: PageTitle for " + actualPageTitle
+                + " contains: '" + expectedPagetitle + "'.");
+    }
 
     //get element from a web element list based on the index
     protected WebElement getElementByIndex(List<WebElement> elementlist, int index) {
@@ -96,10 +114,37 @@ public class BaseUi {
     public void switchToDefaultContent() {
         driver.switchTo().defaultContent();
     }
+    
+    protected void changeWindow(int i) {
+        hardWait(1);
+        Set<String> windows = driver.getWindowHandles();
+        if (i > 0) {
+            for (int j = 0; j < 5; j++) {
+                System.out.println("Windows: " + windows.size());
+                if (windows.size() >= 2) {
+                    try {
+                        Thread.sleep(5000);
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    break;
+                }
+                windows = driver.getWindowHandles();
+            }
+        }
+        String wins[] = windows.toArray(new String[windows.size()]);
+        driver.switchTo().window(wins[i]);
+        hardWait(1);
+        System.out.println("Title: " + driver.switchTo().window(wins[i]).getTitle());
+    }
 
     //execute java script code if required
     protected void executeJavascript(String script) {
         ((JavascriptExecutor) driver).executeScript(script);
+    }
+    
+    protected void clickElementWithJavascript(WebElement element) {
+        ((JavascriptExecutor) driver).executeScript("arguments[0].click();",element);
     }
 
     // function for mouse hover on any web element
@@ -171,6 +216,10 @@ public class BaseUi {
     	Select select = new Select(element);
     	return select.getFirstSelectedOption().getAttribute("value");
     	
+    }
+    
+    protected void closeWindow() {
+        driver.close();
     }
   
 }
