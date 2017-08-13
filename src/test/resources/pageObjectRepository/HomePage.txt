@@ -27,6 +27,7 @@ tagLinks_list: xpath: //div[@id='${sectionId}']/div/div/div//a[contains(@class,'
 postImages_list: xpath: //div[@id='${sectionId}']/div//a/div/div[1]
 selectCountry_dropdown: id: select-country
 footerLinks_list: xpath: //footer[@id='footer']//div/div[2]/div/ul/li/a
+socialMediaLinks_list: xpath: //div[@class='social-icons-footer']/div/a
 about_link: linktext: About
 contact_link: linktext: Contact
 downloadApp_link: linktext: Download App
@@ -35,3 +36,8 @@ legalInformation_link: linktext: Legal Information
 trivago_link: linktext: trivago
 copyright_label: xpath: //div[contains(text(),'Copyright © 2017 trivago | All rights reserved.')]
 navigationMenuLinks_list: xpath: //nav[contains(@class,'main-menu')]/ul/ul/li/a
+facebook_button: xpath: //a[@class='share_link' and @ga-event-action = 'Facebook']
+twitter_button: xpath: //a[@class='share_link' and @ga-event-action = 'Twitter']
+pinetrest_button: xpath: //a[@class='share_link' and @ga-event-action = 'Pinterest']
+instagram_button: xpath: //a[@class='share_link' and @ga-event-action = 'Instagram']
+whatsapp_button: xpath: //a[@class='share_link' and @ga-event-action = 'WhatsApp']

@@ -1,0 +1,3 @@
+#BlogPage
+#elementname: locatortype: locatorvalue
+root_tag: tagname: html
